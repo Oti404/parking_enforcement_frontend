@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Unified card style */
+  .card {
+    background: #1a1f2e;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    box-shadow: 0 10px 24px -4px rgba(0,0,0,0.35);
+  }
+
+  /* Confirm action button */
+  .btn-confirm {
+    background: rgba(16,185,129,0.12);
+    border: 1.5px solid rgba(16,185,129,0.35);
+    color: #34d399;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+  .btn-confirm:hover:not(:disabled) {
+    background: rgba(16,185,129,0.22);
+    border-color: #10b981;
+    box-shadow: 0 0 18px rgba(16,185,129,0.28);
+    transform: translateY(-1px);
+  }
+  .btn-confirm.active {
+    background: rgba(16,185,129,0.22);
+    border-color: #10b981;
+    box-shadow: 0 0 18px rgba(16,185,129,0.28);
+    color: #6ee7b7;
+  }
+
+  /* Dismiss action button */
+  .btn-dismiss {
+    background: rgba(239,68,68,0.08);
+    border: 1.5px solid rgba(239,68,68,0.25);
+    color: #f87171;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+  .btn-dismiss:hover:not(:disabled) {
+    background: rgba(239,68,68,0.18);
+    border-color: #ef4444;
+    box-shadow: 0 0 18px rgba(239,68,68,0.22);
+    transform: translateY(-1px);
+  }
+  .btn-dismiss.active {
+    background: rgba(239,68,68,0.18);
+    border-color: #ef4444;
+    box-shadow: 0 0 18px rgba(239,68,68,0.22);
+    color: #fca5a5;
+  }
+
+  /* Deep input style */
+  .input-deep {
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    color: #f1f5f9;
+    font-size: 0.875rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .input-deep::placeholder { color: rgba(255,255,255,0.2); }
+  .input-deep:focus {
+    outline: none;
+    border-color: rgba(59,130,246,0.6);
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.3), 0 0 0 3px rgba(59,130,246,0.15);
+  }
+
+  /* Submit button */
+  .btn-submit {
+    background: #2563eb;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(37,99,235,0.35);
+  }
+  .btn-submit:hover:not(:disabled) {
+    background: #3b82f6;
+    box-shadow: 0 6px 20px rgba(59,130,246,0.4);
+    transform: translateY(-1px);
+  }
+  .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+}
+
+@layer utilities {
+  /* Row urgency borders */
+  .row-needs-review { border-left: 3px solid #f97316; }
+  .row-danger       { border-left: 3px solid #ef4444; }
+  .row-normal       { border-left: 3px solid transparent; }
+
+  /* Smooth global transitions */
+  button, a { transition-property: background-color, border-color, color, opacity, transform, box-shadow; }
+  button:active:not(:disabled) { transform: scale(0.97); }
+}
