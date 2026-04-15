@@ -1,9 +1,9 @@
 services:
   - type: web
     name: enforcenet-dashboard
-    env: static
+    runtime: static
     buildCommand: sed -i "s|RENDER_API_URL|$API_URL|g" src/environments/environment.prod.ts && npm ci && npm run build
-    staticPublishPath: dist/enforcenet-dashboard/browser
+    publishPath: dist/app/browser
     envVars:
       - key: API_URL
         sync: false
