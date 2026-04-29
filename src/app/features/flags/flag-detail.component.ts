@@ -462,7 +462,8 @@ export class FlagDetailComponent implements OnInit {
 
   imageUrl(path: string): string {
     if (path.startsWith('http://') || path.startsWith('https://')) return path;
-    return `${environment.apiUrl}${path}`;
+    if (path.startsWith('data:image')) return path;
+    return `data:image/jpeg;base64,${path}`;
   }
 
   // ── Violation helpers ──

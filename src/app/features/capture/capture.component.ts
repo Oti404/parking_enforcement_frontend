@@ -326,7 +326,8 @@ export class CaptureComponent implements OnInit, OnDestroy {
     const imagePath = this.result()?.evidence_image_url;
     if (!imagePath) return null;
     if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) return imagePath;
-    return `${environment.apiUrl}${imagePath}`;
+    if (imagePath.startsWith('data:image')) return imagePath;
+    return `data:image/jpeg;base64,${imagePath}`;
   });
   readonly resultBadgeClass = computed(() =>
     this.result()?.status === 'flagged'
