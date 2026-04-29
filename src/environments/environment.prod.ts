@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'RENDER_API_URL',
+  apiUrl: 'https://spiritual-corny-veto.ngrok-free.dev',
 };
