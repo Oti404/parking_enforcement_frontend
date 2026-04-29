@@ -20,6 +20,13 @@ import { AuthService } from '../core/services/auth.service';
             Dashboard
           </a>
           <a
+            routerLink="/capture"
+            routerLinkActive="bg-gray-700 text-white"
+            class="px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-colors text-sm font-medium"
+          >
+            Capture
+          </a>
+          <a
             routerLink="/flags"
             routerLinkActive="bg-gray-700 text-white"
             class="px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-colors text-sm font-medium"

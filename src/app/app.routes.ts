@@ -14,6 +14,12 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'capture',
+    loadComponent: () =>
+      import('./features/capture/capture.component').then((m) => m.CaptureComponent),
+    canActivate: [authGuard],
+  },
+  {
     path: 'flags',
     loadComponent: () =>
       import('./features/flags/flags-list.component').then((m) => m.FlagsListComponent),
