@@ -15,13 +15,18 @@ export class AuthService {
   readonly isAuthenticated = computed(() => !!this.token());
 
   login(username: string, password: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'ngrok-skip-browser-warning': 'true'
+    });
+
     const body = new URLSearchParams();
     body.set('username', username);
     body.set('password', password);
 
     return this.http
       .post<LoginResponse>(`${environment.apiUrl}/api/v1/auth/login`, body.toString(), {
-        headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }),
+        headers: headers
       })
       .pipe(
         tap((res) => {
@@ -32,7 +37,6 @@ export class AuthService {
         })
       );
   }
-
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
